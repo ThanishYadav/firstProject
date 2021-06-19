@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context = "http://www.springframework.org/schema/context"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+               
+     <context:annotation-config/>
+     <context:component-scan base-package="com.vsjit"/>
+
+	<bean id="studentbean" class="com.vsjit.Student">
+		<property name="name" value="Vimal Jaiswal"></property>
+	</bean>
+	
+	<bean id ="doc" class="com.vsjit.Doctor">
+<!-- 	<property name="patId" ref="pat"></property> -->
+	<constructor-arg  name="patId"  ref="pat"></constructor-arg>
+	<property name="docId" value="111"></property>
+	<property name="docName" value="Jaysimha"></property>
+	 <property name="pateintList">
+	<list>
+	<value>aaa</value>
+	<value>nnn</value>
+	<value>mmm</value>
+	</list>
+	</property> 
+	<!-- <constructor-arg name="pateintList">
+	<list>
+	<value>qqqq</value>
+	<value>wwww</value>
+	<value>rrr</value>
+	</list>
+	</constructor-arg> -->
+	
+	</bean>
+
+	<bean id="pat" class="com.vsjit.Patient">
+		   <!-- <property name="patId" value="123"> </property>
+		  <property name="patName" 	value="Thanish"></property>
+		  <property name="patAge" value="7"></property>  --> 
+			  <constructor-arg value="333" />
+			<constructor-arg value="Leena" />
+			<constructor-arg value="8" />  
+	</bean>
+	
+	<bean id="myCollection" class="com.vsjit.MyCollection">
+		<property name="myList">
+	  <list>
+	       <value>List Value A</value>
+	       <value>List Value B</value>
+	  </list>
+      </property>
+      <property name="mySet">
+          <set>
+            <value>Set Value A</value>
+            <value>Set Value B</value>
+          </set>
+      </property>
+      <property name="myMap">
+	 <map>
+            <entry key="0" value="Map Value A"/>           
+            <entry key="1" value="Map Value B"/>
+         </map>
+      </property>
+      <property name="myProp">
+	<props>
+	    <prop key="propKeyA">Prop Value A</prop>
+	    <prop key="propKeyB">Prop Value B</prop>
+	</props>
+      </property>       
+	</bean>
+	
+	
+
+</beans>
